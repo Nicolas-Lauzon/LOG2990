@@ -1,0 +1,128 @@
+<div id="menu">
+  <div id="toolMenu" [ngSwitch]="this.index[0]">
+    <div id="selectionToolMenu" *ngSwitchCase="SIDEBAR_ICON_INDEX().SELECTION">
+      <h6 *ngIf= "!this.selectionService.getSelectionStatus() && this.selectionService.clipBoard.isClipboardEmpty()">
+        Vous pouvez sélectionner des éléments avec votre souris
+      </h6>
+      <div *ngIf="this.selectionService.getSelectionStatus() || !this.selectionService.clipBoard.isClipboardEmpty()">
+      <button title="copier" type="button" (click)='this.selectionService.clipBoard.copy()'>
+        <img src="../../../assets/copy_icon.svg" alt="copy icon"
+          width="25px" height="25px" />
+      </button>
+      <button title="coller" type="button" (click)='this.selectionService.clipBoard.paste()'>
+        <img src="../../../assets/paste_icon.svg" alt="paste icon"
+          width="25px" height="25px" />
+      </button>
+      <button title="couper" type="button" (click)='this.selectionService.clipBoard.cut()'>
+        <img src="../../../assets/cut_icon.svg" alt="cut icon"
+          width="25px" height="25px" />
+      </button>
+      <button title="dupliquer" type="button" (click)='this.selectionService.clipBoard.duplicate()'>
+        <img src="../../../assets/duplicate_icon.svg" alt="duplicate icon"
+          width="25px" height="25px" />
+      </button>
+      <button title="supprimer" type="button" (click)='this.selectionService.clipBoard.delete()'>
+        <img src="../../../assets/delete_icon.svg" alt="delete icon"
+          width="25px" height="25px" />
+      </button>
+    </div>
+  </div>
+
+
+    <div id="drawToolsMenu" *ngSwitchCase="SIDEBAR_ICON_INDEX().DRAWING">
+      <button title="crayon" class="bttn {{ this.iconState[1][DRAWING_ICON_INDEX().PENCIL].iconState }}"
+        type="button"
+        (click)='this.selectedDrawTool.emit(DRAWING_ICON_INDEX().PENCIL)'>
+        <img src="../../../assets/pencil_icon.svg" alt="pencil icon"
+          width="25px" height="25px" />
+      </button>
+      <button title="pinceau" class="bttn {{ this.iconState[1][DRAWING_ICON_INDEX().BRUSH].iconState }}"
+        type="button"
+        (click)="this.selectedDrawTool.emit(DRAWING_ICON_INDEX().BRUSH)">
+        <img src="../../../assets/brush_icon.png" alt="pencil icon" width="25px"
+          height="25px" />
+      </button>
+      <button title="spray" class="bttn {{ this.iconState[1][DRAWING_ICON_INDEX().SPRAY].iconState }}"
+      type="button"
+      (click)='this.selectedDrawTool.emit(DRAWING_ICON_INDEX().SPRAY)'>
+      <img src="./../../../../../assets/spray.png" alt="spray icon"
+        width="25px" height="25px" />
+      </button>
+      <button title="efface" class="bttn {{ this.iconState[1][DRAWING_ICON_INDEX().ERASER].iconState }}"
+        type="button"
+        (click)='this.selectedDrawTool.emit(DRAWING_ICON_INDEX().ERASER)'>
+        <img src="../../../assets/eraser_icon.svg" alt="pencil icon"
+          width="25px" height="25px" />
+      </button>
+
+    </div>
+
+
+
+    <div id="shapesToolsMenu" *ngSwitchCase="SIDEBAR_ICON_INDEX().SHAPE">
+      <button title="ligne" class="bttn {{ this.iconState[2][SHAPE_ICON_INDEX().LINE].iconState }}"
+        type="button"
+        (click)="this.selectedShapeTool.emit(SHAPE_ICON_INDEX().LINE)">
+        <img src="../../../assets/line_icon.svg" alt="pencil icon" width="25px"
+          height="25px" />
+      </button>
+      <button title="rectangle" class="bttn {{ this.iconState[2][SHAPE_ICON_INDEX().RECTANGLE].iconState }}"
+        type="button"
+        (click)="this.selectedShapeTool.emit(SHAPE_ICON_INDEX().RECTANGLE)">
+        <img src="../../../assets/shape_icon.svg" alt="pencil icon" width="25px"
+          height="25px" />
+      </button>
+      <button title="ellipse" class="bttn {{  this.iconState[2][SHAPE_ICON_INDEX().ELLIPSE].iconState }}"
+      type="button"
+      (click)="this.selectedShapeTool.emit(SHAPE_ICON_INDEX().ELLIPSE)">
+      <img src="../../../assets/oval.svg" alt="pencil icon" width="25px"
+        height="25px" />
+    </button>
+    <button title="polygon" class="bttn {{  this.iconState[2][SHAPE_ICON_INDEX().POLYGON].iconState }}"
+      type="button"
+      (click)="this.selectedShapeTool.emit(SHAPE_ICON_INDEX().POLYGON)">
+      <img src="../../../assets/hexagon_icon.svg" alt="polygon icon" width="25px"
+        height="25px" />
+    </button>
+    </div>
+
+
+    <div id="coloringToolsMenu" *ngSwitchCase="SIDEBAR_ICON_INDEX().COLOR">
+      
+    <button class="bttn {{iconState[3][COLOR_ICON_INDEX().BUCKET].iconState}}"
+      type="button" title="sceau de peinture"
+      (click)="selectedColorTool.emit(COLOR_ICON_INDEX().BUCKET)">
+      <img src="../../../assets/bucket_icon.svg" alt="bucket icon" width=25px
+           height=25px></button>
+
+    <button class="bttn {{iconState[3][COLOR_ICON_INDEX().PICKER].iconState}}"
+    type="button" title="pipette"
+    (click)="selectedColorTool.emit(COLOR_ICON_INDEX().PICKER)">
+      <img src="../../../assets/pipette.svg" alt="pipette icon" width=25px height=25px></button>
+
+    <button class="bttn {{iconState[3][COLOR_ICON_INDEX().APPLICATOR].iconState}}" title="applicateur de couleur" type="button"
+      (click)="selectedColorTool.emit(COLOR_ICON_INDEX().APPLICATOR)">
+      <img src="../../../assets/colorApplicator_icon.svg" alt="applicator icon" width=25px height=25px></button>
+
+    </div>
+
+
+  </div>
+
+  <div id="attributesMenu">
+    <app-color-menu (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-color-menu>
+    <div id="toolsSpecificAttributesMenu"
+      [ngSwitch]="this.index[1]">
+      <app-attributes-pencil *ngSwitchCase="1" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-pencil>
+      <app-attributes-brush *ngSwitchCase="2" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-brush>
+      <app-attributes-eraser *ngSwitchCase="3" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-eraser>
+      <app-attributes-line *ngSwitchCase="4" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-line>
+      <app-attributes-rectangle *ngSwitchCase="5" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-rectangle>
+      <app-attributes-ellipse *ngSwitchCase="6" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-ellipse>
+      <app-attributes-polygon *ngSwitchCase="7" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-polygon>
+      <app-attributes-spray *ngSwitchCase="8" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-spray>
+      <app-attributes-grid *ngSwitchCase="10" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-grid>
+      <app-attributes-bucket *ngSwitchCase="12" (focus)='this.focus.emit()' (outFocus)='this.outFocus.emit()'></app-attributes-bucket>
+    </div>
+  </div>
+</div>

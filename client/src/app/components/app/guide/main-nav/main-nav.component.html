@@ -1,0 +1,72 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="!(isHandset$ | async)"
+    >
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <mat-menu></mat-menu>
+
+            <span class="menu-container" mat-menu-item (click)="this.toggleView(0)">Bienvenue</span>
+
+            <mat-expansion-panel [expanded]="this.panelOpenState[0]">
+                <mat-expansion-panel-header>
+                    <span class="menu-container">Outils</span>
+                </mat-expansion-panel-header>
+
+                <a mat-menu-item (click)="this.toggleView(1)">Vue de dessin</a>
+                <a mat-menu-item (click)="this.toggleView(2)">Outils de traçage</a>
+                <a mat-menu-item (click)="this.toggleView(3)">Outils de forme</a>
+                <a mat-menu-item (click)="this.toggleView(4)">Outils de couleur</a>
+                <a mat-menu-item (click)="this.toggleView(5)">Palette de couleur</a>
+
+                <!-- <a mat-menu-item (click)="this.toggleView(6)">Ligne</a> -->
+
+                <mat-expansion-panel [expanded]="this.panelOpenState[1]">
+                    <mat-expansion-panel-header>
+                        <span class="menu-container">Utilitaires</span>
+                    </mat-expansion-panel-header>
+
+                    <a mat-menu-item (click)="this.toggleView(6)">Sélectionner</a>
+                    <a mat-menu-item (click)="this.toggleView(7)">Grille</a>
+                    <a mat-menu-item (click)="this.toggleView(8)">Annuler-refaire</a>
+                </mat-expansion-panel>
+            </mat-expansion-panel>
+            <mat-expansion-panel [expanded]="this.panelOpenState[2]">
+                <mat-expansion-panel-header>
+                    <span class="menu-container">Menus</span>
+                </mat-expansion-panel-header>
+                <a mat-menu-item (click)="this.toggleView(9)">Créer un nouveau dessin</a>
+                <a mat-menu-item (click)="this.toggleView(10)">Galerie</a>
+                <button mat-menu-item (click)="this.toggleView(11)">Sauvegarder</button>
+                <!-- <button mat-menu-item (click)="this.toggleView(12)">Créer</button> -->
+                <button mat-menu-item (click)="this.toggleView(12)">Exporter</button>
+            </mat-expansion-panel>
+            <!-- <span class="menu-container" mat-menu-item>Réglages</span> -->
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <div class="upBar">
+                <span>Guide d'Utilisation</span>
+                <div id="exitButton" appBackButton><img src="../../../../assets/exit_button.png" alt="exit_button" width="40px" height="40px" /></div>
+            </div>
+        </mat-toolbar>
+        <div>
+            <nav>
+                <app-global-guide [viewIndex]="viewIndex"></app-global-guide>
+                <div class="footer">
+                    <button id="previousButton" *ngIf="this.sidenavService.viewIndex" (click)="this.decreaseIndex()">Précédent</button>
+                    <button id="nextButton" *ngIf="this.sidenavService.viewIndex != 14" (click)="this.increaseIndex()">Suivant</button>
+                </div>
+            </nav>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

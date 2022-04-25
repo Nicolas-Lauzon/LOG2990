@@ -1,0 +1,130 @@
+mat-form-field {
+  display: block;
+  overflow: auto;
+}
+
+form {
+  overflow: auto;
+  size: inherit;
+}
+
+
+#exitButton {
+  float: right;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+#center {
+
+  border: 3px solid black;
+  background-color: white;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  height: fit-content;
+
+}
+.layout{
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+}
+
+#layoutColor {
+  margin: auto;
+  width: 78%;
+  padding: 10px;
+}
+
+#layoutColorButton {
+  margin: auto;
+  width: 20%;
+  padding: 10px;
+}
+
+.font{
+  color: black;
+  font-family: 'Trocchi', serif;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 0;
+}
+
+.buttonCreate {
+  background-color: #3b5998;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5b75ad;
+}
+
+#tagsDivision {
+  margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.add{
+  background-color: rgb(41, 51, 49); /* Green */
+  left: 100%;
+  bottom: 100%;
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 7px 6px;
+}
+
+.buttonTag {
+  background-color: rgba(40, 112, 134, 0.63); /* Green */
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.buttonTag:hover {
+  background-color: rgb(82, 6, 6);
+
+}
+.add{
+  background-color: rgb(41, 51, 49); /* Green */
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 7px 6px;
+}
+
+.tag {
+  display:inline-block;
+  text-align: center;
+  margin-top: 4px;
+}
+
+#content {
+  z-index: 8;
+  position: relative;
+  left: 20%;
+  top: 10%;
+}
+
+#backgroundPane {
+  z-index: 0;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color:#ffffff66;
+}

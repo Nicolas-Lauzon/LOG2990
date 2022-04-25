@@ -1,0 +1,59 @@
+
+#createDraw{
+  position: absolute;
+  display: inline-block;
+  left: 22.5%;
+  top: 10%;
+  z-index: 3;
+  width: 35%;
+  height: fit-content;
+  background-color:none;
+}
+
+#createSaving{
+  position: absolute;
+  display: inline-block;
+  left: 22.5%;
+  top: 10%;
+  z-index: 3;
+  width: 35%;
+  height: fit-content;
+  background-color: none;
+
+}
+#export{
+  position: absolute;
+  display: inline-block;
+  left: 22.5%;
+  top: 5%;
+  z-index: 3;
+  width: 815px;
+  height: fit-content;
+  background-color:none;
+  border-color: black;
+}
+
+
+#openGallery{
+  position: absolute;
+  display: inline-block;
+  left: 0%;
+  top: 0%;
+  z-index: 3;
+  width: 100%;
+  background-color: none;
+}
+
+#drawingSpaceApp{
+  z-index: 1;
+}
+
+.menu {
+  z-index: 2;
+}
+
+#content {
+  top:0px;
+  left: 0px;
+  overflow: hidden;
+}

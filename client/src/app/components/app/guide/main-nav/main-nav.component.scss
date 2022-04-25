@@ -1,0 +1,89 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+
+.sidenav {
+  width: 300px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.button {
+  width:100%;
+  display:block;
+
+}
+.menu-container {
+  font-weight: bold;
+  font-size: 15px;
+
+}
+.menu-container:hover {
+  border: 0px;
+}
+
+span .menu-container .mat-menu-item {
+  font: 15px;
+  padding: 0px 16px;
+
+}
+.upBar {
+  margin-top: 20px;
+  width: 100%;
+
+}
+a:hover {
+  border: 0px;
+}
+#exitButton {
+  float: right;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+#previousButton {
+  float: left;
+  margin-left: 300px;
+  height: 100%;
+  width: 100px;
+}
+#nextButton {
+  float: right;
+  height: 100%;
+  width: 100px;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #3F51B5;
+}
+@media screen and (max-width: 950px) {
+  #previousButton {
+    left: 0;
+    float: left;
+    height: 100%;
+    width: 100px;
+  }
+  #nextButton {
+    position: absolute;
+    float: right;
+    height: 100%;
+    width: 100px;
+  }
+}
+
+

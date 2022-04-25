@@ -1,0 +1,99 @@
+#content{
+  border-style: solid;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 25% 65% 10%;
+  grid-gap: 0px;
+  width: 100%;
+
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 1);
+  font-size: 20px;
+  text-align: center;
+}
+
+#typeExport {
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+#filters {
+  grid-row-start: 7;
+  grid-row-end: 11;
+}
+
+#exitButton {
+  grid-row: 1;
+  grid-column: 3;
+  text-align: right;
+}
+#exitImage {
+  cursor: pointer;
+}
+#exportButton{
+  grid-column: 1;
+  grid-row: 11;
+  text-align: center;
+}
+#typeTitle{
+  font-size: 15px;
+  grid-row: 2;
+}
+
+#typeEmail{
+  font-size: 13px;
+  grid-row: 2;
+}
+
+#filterTitle{
+  font-size: 15px;
+  grid-column: 1;
+  grid-row: 6;
+
+
+}
+#drawingName{
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+#nameField{
+  width: 100%;
+  text-align: center;
+}
+
+#imageDiv{
+  grid-row-start: 2;
+  grid-row-end: 12;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  border-left: solid;
+  border-top: solid;
+
+}
+#idExportButton{
+  padding: 9px 70px;
+  background-color: #3b5998;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#backgroundPane {
+  z-index: 0;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color:#ffffff66;
+}

@@ -1,0 +1,80 @@
+<div class="sidebar">
+
+  <div class="top">
+
+    <button class="btn{{iconState[0][SIDEBAR_ICON_INDEX().SELECTION].iconState}}"
+      type="button" title="sélection"
+      (click)="selectedSidebar.emit( SIDEBAR_ICON_INDEX().SELECTION )">
+      <img src="../../../assets/mouse_icon.svg" alt="mouse icon" width=25px
+        height=25px></button>
+
+    <button class="btn{{iconState[0][SIDEBAR_ICON_INDEX().DRAWING].iconState}}"
+      type="button" title="outils"
+      (click)="selectedSidebar.emit(SIDEBAR_ICON_INDEX().DRAWING)">
+      <img src="{{iconState[0][SIDEBAR_ICON_INDEX().DRAWING].iconSrc}}"
+           alt="pencil icon" width=25px height=25px></button>
+
+    <button class="btn{{iconState[0][SIDEBAR_ICON_INDEX().SHAPE].iconState}}"
+      type="button" title="formes"
+      (click)="selectedSidebar.emit(SIDEBAR_ICON_INDEX().SHAPE)">
+      <img src="{{iconState[0][SIDEBAR_ICON_INDEX().SHAPE].iconSrc}}"
+           alt="shape icon" width=25px height=25px></button>
+
+    <button class="btn{{iconState[0][SIDEBAR_ICON_INDEX().COLOR].iconState}}"
+      type="button" title="sceau de peinture"
+      (click)="selectedSidebar.emit(SIDEBAR_ICON_INDEX().COLOR)">
+      <img src="../../../assets/bucket_icon.svg" alt="bucket icon" width=25px
+           height=25px></button>
+
+    <!-- <button class="btn{{iconState[0][SIDEBAR_ICON_INDEX().PICKER].iconState}}"
+    type="button" title="pipette"
+    (click)="selectedSidebar.emit(SIDEBAR_ICON_INDEX().PICKER)">
+      <img src="../../../assets/pipette.svg" alt="pipette icon" width=25px height=25px></button>
+
+    <button class="btn{{iconState[0][SIDEBAR_ICON_INDEX().APPLICATOR].iconState}}" title="applicateur de couleur" type="button"
+      (click)="selectedSidebar.emit(SIDEBAR_ICON_INDEX().APPLICATOR)">
+      <img src="../../../assets/colorApplicator_icon.svg" alt="applicator icon" width=25px height=25px></button> -->
+  </div>
+
+  <div class="bottom">
+
+    <button class="btn{{iconState[0][SIDEBAR_ICON_INDEX().GRID].iconState}}"
+    type="button" title="grille"
+      (click)="selectedSidebar.emit(SIDEBAR_ICON_INDEX().GRID)">
+      <img src="../../../assets/grid_icon.svg" alt="grid icon" width=25px height=25px></button>
+
+  <button title="refaire" class="btn" type="button" (click)="this.services[1].redo();this.services[0].resetSelection();" [disabled]="!this.services[1].nUndone">
+      <img src="../../../assets/redo.svg" alt="undo" width="25px" height="25px" />
+  </button>
+    <button title="annuler" class="btn" type="button" (click)="this.services[1].undo();this.services[0].resetSelection();" [disabled]="!this.services[1].nDone">
+      <img src="../../../assets/undo.svg" alt="redo" width="25px" height="25px" />
+  </button>
+
+  <div class="separator"></div>
+
+
+  <button title="créer un nouveau dessin" class="btn" title="nouveau" type="button" (click)="createNewDrawing.emit(true)">
+      <img src="../../../assets/plus_icon.svg" alt="plus icon" width="25px" height="25px" />
+  </button>
+  <button title="sauvegarder un dessin" class="btn" title="sauver" type="button" (click)="saveDrawing.emit(true)">
+      <img src="../../../assets/save_icon.svg" alt="plus icon" width="25px" height="25px" />
+  </button>
+  <button title="exporter un dessin" class="btn" type="button" (click)="exportDrawing.emit(true)">
+      <img src="../../../assets/export_icon.svg" alt="plus icon" width="25px" height="25px" />
+  </button>
+
+  <button title="montrer la gallerie" class="btn" title="galerie" type="button" (click)="showGallery.emit(true)">
+    <img src="../../../assets/gallery_icon.svg" alt="plus icon" width="25px" height="25px" />
+</button>
+
+    <button title="retour à l'acceuil" class="btn" title="acceuil" type="button" routerLink="/">
+      <img src="../../../assets/home_icon.svg" alt="home icon" width=25px
+           height=25px></button>
+
+    <button title="guide d'utilisation" class="btn" title="guide" type="button" routerLink="../Guide">
+      <img src="../../../assets/userguide_icon.svg" alt="user guide icon"
+           width=25px height=25px></button>
+
+  </div>
+
+</div>

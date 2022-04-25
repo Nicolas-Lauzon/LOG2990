@@ -1,0 +1,69 @@
+<div #content id="content">
+  <div class="body" class="grid-container">
+
+    <div id="imageDiv" class="grid-item" width="602" height="600">
+      <img #image id="image" src="" alt="thumbnail" width="602" height="600">
+    </div>
+
+    <div id="exitButton" class="grid-item" >
+      <img id="exitImage" src="../../../../assets/exit_button.png" alt="exit_button" width="40px" height="40px" (click)="exportDraw.emit(false)" />
+    </div>
+
+    <div id="drawingName" class="grid-item" >
+      <mat-form-field class="example-full-width" id="nameField">
+        <mat-label>Entrez le nom du dessin</mat-label>
+        <input #name matInput id="name" (keypress)='validateForm($event)'>
+      </mat-form-field>
+    </div>
+
+    <div id="typeTitle" class="grid-item"  ><h2> Type d'exportation </h2></div>
+
+    <div id="typeExport" class="grid-item" >
+      <mat-selection-list>
+        <mat-list-option #svgBox id="svgBox" (click)="this.changeSVG()">
+        SVG
+        </mat-list-option>
+        <mat-list-option #pngBox id="pngBox" (click)="this.changePNG()">
+        PNG
+        </mat-list-option>
+        <mat-list-option #jpgBox id="jpgBox" (click)="this.changeJPG()">
+        JPG
+        </mat-list-option>
+        <mat-list-option (click)="this.changeEmail()">
+          Envoyer par courriel
+          </mat-list-option>
+          <mat-form-field *ngIf="this.clickedTable[3]" class="example-full-width" id="typeEmail">
+            <mat-label>Entrez votre email</mat-label>
+            <input #email matInput id="email">
+          </mat-form-field>
+      </mat-selection-list>
+    </div>
+
+    <div id="filterTitle" class="grid-item" ><h2> Filtres </h2></div>
+
+    <div id="filters" class="grid-item" >
+        <mat-selection-list>
+        <mat-list-option #filter0 id="filter0" (click)="changeFilter(0); applyFilter(0)" [selected]="filters[0]">
+          Sombre
+        </mat-list-option>
+        <mat-list-option  #filter1 id="filter1" (click)="changeFilter(1); applyFilter(1)" [selected]="filters[1]">
+          Saturation
+        </mat-list-option>
+        <mat-list-option  #filter2 id="filter2" (click)="changeFilter(2); applyFilter(2)" [selected]="filters[2]">
+          Inversion de couleur
+        </mat-list-option>
+        <mat-list-option #filter3 id="filter3" (click)="changeFilter(3); applyFilter(3)" [selected]="filters[3]">
+          Flou
+        </mat-list-option>
+        <mat-list-option  #filter4 id="filter4" (click)="changeFilter(4); applyFilter(4)" [selected]="filters[4]">
+          Couleurs froides
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+    <div class="grid-item" id="exportButton">
+      <button id="idExportButton"(click)="this.exportDrawingButton()">Exporter</button>
+    </div>
+  </div>
+</div>
+
+<div id="backgroundPane"></div>

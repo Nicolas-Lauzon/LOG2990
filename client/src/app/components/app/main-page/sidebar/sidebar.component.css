@@ -1,0 +1,72 @@
+.sidebar{
+  height: 100%;
+  width: 55px;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: rgb(25, 87, 105);
+  overflow-x: hidden;
+  padding-top: 0px;
+  color: black;
+  margin: 0px;
+}
+
+.btn{
+  margin: 6px 6px 6px 6px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 1px 6px 1px 6px;
+}
+
+.separator{
+  height: 3px;
+  background-color: black;
+  margin: 6px 6px 6px 6px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+  cursor: pointer;
+}
+
+.active {
+  background-color: gray;
+}
+
+.bottom{
+  display: block;
+  bottom: 1px;
+  position: absolute;
+
+
+}
+
+#exitButton {
+  float: right;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+#backPanel {
+  position: fixed;
+  overflow: auto;
+  background-color: #ffffff77;
+  left: 0%;
+  top:0%;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
+.if{
+  position: absolute;
+}
+
+:disabled {
+  display:none;
+}

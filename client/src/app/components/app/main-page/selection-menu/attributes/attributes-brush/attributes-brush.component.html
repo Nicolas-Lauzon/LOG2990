@@ -1,0 +1,32 @@
+<div id="attributes">
+  <h5 class="AttributeHeader">Épaisseur du trait (en pixel)</h5>
+
+  <input class="InputBox" value={{currentWidth}} type="number"  min="1" max="250" step="1"
+    oninput="validity.valid||((value < min) ? value = 1 :value= 250);"
+    (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+    (input)= "onTextChange($event.target.value)" (keypress)='onKeypress($event)'>
+
+  <mat-slider class="Slider" min="1" max="250" step="1" value={{currentWidth}} thumbLabel tickInterval="1"
+  (change)="onSliderChange($event.value)"></mat-slider>
+
+  <h4 id="filterHeader">Différents Traits: </h4>
+
+  <button class="FilterButton {{this.brushStatus[0]}}" (click)="this.onClickFilter(0);">
+    <img src="../../../assets/filtre1.png" alt="pencil icon"/></button>
+
+  <button class="FilterButton {{this.brushStatus[1]}}" (click)="this.onClickFilter(1);">
+    <img src="../../../assets/filtre2.png" alt="pencil icon"/></button>
+
+  <button class="FilterButton {{this.brushStatus[2]}}" (click)="this.onClickFilter(2);">
+    <img src="../../../assets/filtre3.png" alt="pencil icon"/></button>
+
+  <button class="FilterButton {{this.brushStatus[3]}}" (click)="this.onClickFilter(3);">
+    <img src="../../../assets/filtre4.png" alt="pencil icon"/></button>
+
+  <button class="FilterButton {{this.brushStatus[4]}}" (click)="this.onClickFilter(4);">
+    <img src="../../../assets/filtre5.png" alt="pencil icon"/></button>
+
+  <button class="FilterButton {{this.brushStatus[5]}}" (click)="this.onClickFilter(5);">
+    <img src="../../../assets/filtre6.png" alt="pencil icon"/></button>
+
+</div>

@@ -1,0 +1,8 @@
+<div id="menu">
+  <p>Couleurs Récentes</p>
+  <div id="quickColors" #quickColors>
+    <div class="recentColor" *ngFor="let color of recentColors; let i = index" [style.background]="this.recentColors[i]"
+      (click)='onClick($event, i)' (contextmenu)="onClick($event, i);">
+    </div>
+  </div>
+</div>

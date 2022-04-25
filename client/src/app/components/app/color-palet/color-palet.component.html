@@ -1,0 +1,36 @@
+<div #topWindow id="topWindow">
+  <div id="transparenceWindow">
+    <canvas (mousedown)="onClickCanvas()" (mousemove)="onMoveBlackWhite($event)" (mouseup)="mouseUpBlackWhite($event)"
+      id="blackWhiteCanvas" #blackWhiteCanvas margin="10" width="250%" height="470%"
+      style="border:1px solid #000000;"></canvas>
+  </div>
+
+  <div id="rainbowWindow">
+    <canvas (mousedown)="onClickCanvas()" (mousemove)="onMoveRGBA($event)" (mouseup)="mouseUpRGBA($event, 0)"
+      id="rainbowCanvas" #rainbowCanvas width="50%" height="470%" style="border:1px solid #000000;"></canvas>
+  </div>
+
+  <div id="informations">
+    <div id="selectedColor" #selectedColor [style.background]="this.currentColor"></div>
+    <div id="RGBAWindow">
+      <p class="colorHeader">Rouge :</p>
+      <input value="ff" (keypress)='onKeypress($event)' (input)="onInput()" (focus)="this.focus.emit()"
+        (focusout)="this.outFocus.emit()" [value]='this.colorRGB[0]' maxlength="2" class="colorInput" id="redText"
+        #redText />
+
+      <p class="colorHeader">Vert :</p>
+      <input value="ff" (keypress)='onKeypress($event)' (input)="onInput()" (focus)="this.focus.emit()"
+        (focusout)="this.outFocus.emit()" [value]='this.colorRGB[1]' maxlength="2" class="colorInput"
+        id="greenText" #greenText />
+
+      <p class="colorHeader">Bleu :</p>
+      <input value="ff" (keypress)='onKeypress($event)' (input)="onInput()" (focus)="this.focus.emit()"
+        (focusout)="this.outFocus.emit()" [value]='this.colorRGB[2]' maxlength="2" class="colorInput" id="blueText"
+        #blueText />
+    </div>
+    <div id="buttonWindow">
+      <button class="confirmations" (click)="this.emitColor();">OK</button>
+      <button class="confirmations" (click)="this.cancel.emit()">Annuler</button>
+    </div>
+  </div>
+</div>

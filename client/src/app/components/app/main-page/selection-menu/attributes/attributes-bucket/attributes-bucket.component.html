@@ -1,0 +1,9 @@
+<h4> Tolerance de comparaison des couleurs </h4>
+<input class="inputBox" value={{bucketService.tolerance}} type="number" min="0" max="100" step="1"
+oninput="validity.valid||((value < min) ? value = 0 :value= 100);"
+(keypress)='onKeypress($event)'
+(focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+(input)="onToleranceChangeInput($event.target.value)">
+
+<mat-slider class="slider" min="0" max="100" step="1" value={{bucketService.tolerance}} thumbLabel tickInterval="1"
+    (change)="onToleranceChange($event.value)">  </mat-slider>

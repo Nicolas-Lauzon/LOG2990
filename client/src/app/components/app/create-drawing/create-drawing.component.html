@@ -1,0 +1,101 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<div id="content">
+
+<form [formGroup]="myForm">
+
+
+
+  <div id="center">
+    <div id="exitButton" (click)="this.closeButton.emit()">
+      <img src="../../../../assets/exit_button.png" alt="exit_button" width="40px" height="40px" />
+  </div>
+
+    <h4 class="font"> Dimensions </h4>
+    <mat-form-field>
+      <input id="pixelWidth" class="layout" matInput [value]= dimensions[0] (input)="customInput()"
+        placeholder="Entrer largeur en pixel" formControlName="dimensionsX">
+      <mat-error *ngIf="dimensionsX">
+        Largeur invalide.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="layout" matInput input [value]= dimensions[1] (input)="customInput()"
+        placeholder="Entrer hauteur en pixel" formControlName="dimensionsY">
+      <mat-error *ngIf="dimensionsY">
+        Hauteur invalide.
+      </mat-error>
+    </mat-form-field>
+
+
+    <h4 class="font"> Couleur </h4>
+    <mat-form-field>
+      <input id="layoutColor" matInput value=FFFFFF (keypress)='onKeypress($event)'
+        placeholder="Entrer le code hexadecimal" formControlName="color" maxlength="6">
+      <mat-error *ngIf="color">
+        Doit être un code hexadécimal de 6 caractères
+      </mat-error>
+
+      <button type="button" id='layoutColorButton'
+        class="btn btn-default btn-sm" style="float: right"
+        (click)="openPalette()">
+        <span class="glyphicon glyphicon-tint"></span>
+      </button>
+    </mat-form-field>
+
+    <br>
+    <div *ngIf="!activationTable[0]">
+      <button class="buttonCreate" routerLink="../ZoneDessin" (click)="checkActiveDrawing(); "
+        [disabled]="myForm.invalid" color="primary"> Créer nouveau projet
+      </button>
+    </div>
+
+    <div *ngIf="activationTable[0]">
+      <button class="buttonCreate" (click)="checkActiveDrawing()"
+        [disabled]="myForm.invalid" color="primary"> Créer nouveau projet
+      </button>
+    </div>
+
+  </div>
+
+
+
+</form>
+</div>
+
+<div id="backgroundPane"></div>
+
+
+<div id="colorPaletDiv" *ngIf="activationTable[1]">
+  <div id="colorPalet">
+    <app-color-palet [currentColor]="this.myForm.value.color"
+      (cancel)="closeColorPalet();"
+      (setColor)="onSetColor($event);closeColorPalet();"></app-color-palet>
+  </div>
+
+  <div id="desactivatePaletZone" (mousedown)='closeColorPalet()'></div>
+</div>
+
+<div id="popUpConfirmation" *ngIf='activationTable[3]'>
+  <div id="alertWindow">
+    <p id="message">Un dessin est déja actif, voulez-vous tout de même en créer un nouveau et effacer l'ancien?</p>
+      <button class="alertWindowButton" routerLink="../ZoneDessin" (click)='makingForm();'>Oui</button>
+      <button  class="alertWindowButton" (click)='activationTable[3]=false'>Non</button>
+  </div>
+</div>
+
+
+
+
+
+

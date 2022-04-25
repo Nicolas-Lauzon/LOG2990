@@ -1,0 +1,24 @@
+<mat-slide-toggle id="junctionToggleButton" (change)="onGridToggle($event.checked.valueOf())" [checked]="grid.isActive">
+Activer la grille</mat-slide-toggle>
+
+
+<h4> Transparence </h4>
+<input class="inputBox" value={{transparency}} type="number" min="10" max="100" step="1"
+oninput="validity.valid||((value < min) ? value = 10 :value= 100);"
+(keypress)='onKeypress($event)'
+(focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+(input)="onTransparencyChangeInput($event.target.value)">
+
+<mat-slider class="slider" min="10" max="100" step="1" value={{transparency}} thumbLabel tickInterval="1"
+    (change)="onTransparencyChange($event.value)">  </mat-slider>
+
+
+<h4> Grosseur </h4>
+<input class="inputBox" value={{grid.size}} type="number" min="5" max="100" step="1"
+oninput="validity.valid||((value < min) ? value = 5 :value= 100);"
+(keypress)='onKeypress($event)'
+(focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+(input)="onSizeChangeInput($event.target.value)">
+
+<mat-slider class="slider" min="5" max="100" step="1" value={{grid.size}} thumbLabel tickInterval="1"
+    (change)="onSizeChange($event.value)">  </mat-slider>

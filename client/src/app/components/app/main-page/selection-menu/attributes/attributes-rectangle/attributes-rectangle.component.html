@@ -1,0 +1,27 @@
+<div id="attributes">
+  <mat-form-field>
+    <mat-label>Type de rectangle : </mat-label>
+    <mat-select [(value)] = 'rectangleType' (selectionChange)='changeType()'>
+
+      <mat-option value='contour'>Contour</mat-option>
+      <mat-option value='fill'>Plein</mat-option>
+      <mat-option value=''>Plein et contour</mat-option>
+
+
+    </mat-select>
+  </mat-form-field>
+
+  <div classe="if" *ngIf = 'this.activeBorder'>
+    <h5 class="attributeHeader">Épaisseur du contour (en pixel)</h5>
+    <h6 class="attributeHeader">La valeur doit être un nombre entier entre 0 et 50</h6>
+
+    <input class="inputBox" type="number" min="1" max="50" step="1" value={{currentBorderWidth}}
+      oninput="validity.valid||((value < min) ? value = 0 :value= 50);" (keypress)='onKeypress($event)'
+      (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+      (input)= "onWidthInputChange($event.target.value) ">
+
+    <mat-slider class="slider" min="1" max="50" step="1" value={{currentBorderWidth}} thumbLabel tickInterval="1"
+      (change)="onWidthSliderChange($event.value)"></mat-slider>
+
+  </div>
+</div>

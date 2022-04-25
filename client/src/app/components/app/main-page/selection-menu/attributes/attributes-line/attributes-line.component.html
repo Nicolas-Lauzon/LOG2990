@@ -1,0 +1,33 @@
+<div id="attributes">
+  <h5 class="attributeHeader">Épaisseur du trait (en pixel)</h5>
+
+  <input class="inputBox" value={{currentLineWidth}} type="number" min="1" max="250" step="1"
+    oninput="validity.valid||((value < min) ? value = 1 :value= 250);" (keypress)='onKeypress($event)'
+    (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+    (input)= "onWidthInputChange($event.target.value)">
+
+  <mat-slider class="slider" min="1" max="250" step="1" value={{currentLineWidth}}
+    thumbLabel tickInterval="1" (change)="onWidthSliderChange($event.value)"></mat-slider>
+
+  <h5 id="junctionToggle">
+    <mat-slide-toggle id="junctionToggleButton" (change)="onJunctionToggle($event.checked.valueOf())">
+      Points sur les jonctions</mat-slide-toggle>
+  </h5>
+
+  <div class="if" *ngIf="this.lineDrawTool.isUsed[2]">
+    <h5 class="attributeHeader">Rayon des joints (en pixel)</h5>
+    <input class="inputBox" value={{currentJointWidth}} type="number" min="1" max="250" step="1"
+      oninput="validity.valid||((value < min) ? value = 1 :value= 250);" (keypress)='onKeypress($event)'
+      (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+      (input)= "onJunctionRadiusInputChange($event.target.value)">
+
+    <mat-slider class="slider" min="1" max="250" step="1" value={{currentJointWidth}}
+      thumbLabel tickInterval="1"
+      (change)="onJunctionRadiusSliderChange($event.value)"></mat-slider>
+
+  </div>
+
+</div>
+
+
+

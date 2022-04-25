@@ -1,0 +1,78 @@
+#topWindow {
+  border-style: solid;
+  border-color: black;
+  height: 500px;
+  width: 500px;
+  z-index: 1;
+  position: relative;
+  box-sizing: border-box;
+  background-color: lightgrey;
+  border-radius: 20px;
+}
+
+#transparenceWindow {
+  float: left;
+  width: 50%;
+  height: 95%;
+  margin: 10px;
+}
+
+#rainbowWindow {
+  float: left;
+  width: 10%;
+  height: 95%;
+  margin: 10px;
+}
+
+#informations {
+  border-style: solid;
+  border-color: black;
+  padding: 5px;
+  float: left;
+  width: 24%;
+  height: 95%;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 20% 60% 20%;
+
+}
+
+#selectedColor {
+  border-style: solid;
+  border-color: black;
+  float: top;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  background-color: white;
+}
+
+#RGBAWindow {
+  float: top;
+  width: 80%;
+  height: 40%;
+  margin: 5px;
+}
+
+.colorInput {
+  width: 80%;
+  text-align: center;
+}
+
+#buttonWindow {
+  border-style: solid;
+  border-color: black;
+  display: grid;
+}
+
+.confirmations {
+  padding: 0px;
+  margin: auto;
+  height: 80%;
+  width: 80%;
+}
+
+.colorHeader{
+  color: black;
+}

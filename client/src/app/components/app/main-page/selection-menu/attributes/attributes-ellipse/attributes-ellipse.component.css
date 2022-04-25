@@ -1,0 +1,26 @@
+#attributes {
+    display: inline-block;
+  
+    height: 100%;
+    width: 95%;
+    border: solid;
+    border-color: black;
+  
+  
+  }
+  
+  .attributeHeader {
+    position: relative;
+    top : 50%;
+    padding-top: 5%;
+    margin: 0px;
+    left:3%;
+  }
+  
+  .slider {
+    width: 95%;
+  }
+  
+  .if{
+    color: black;
+  }

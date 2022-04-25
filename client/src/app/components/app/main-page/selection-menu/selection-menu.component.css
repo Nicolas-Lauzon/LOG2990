@@ -1,0 +1,114 @@
+#menu{
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 55px;
+  background-color: rgb(40, 112, 134);
+  overflow-x: hidden;
+  padding-top: 0px;
+  color: white;
+  margin: 0px;
+  }
+
+  #menuSelection {
+    color:white;
+  }
+
+  #ifStatement {
+    align-items: center;
+  }
+
+  #toolMenu {
+    align-items: center;
+    display: inline-block;
+    /*height: 80px;*/
+    width: 95%;
+    padding: 0px;
+    margin: 5px;
+    border: 0px;
+
+  }
+
+  .toolSelection button{
+    margin: 6px 6px 6px 4px;
+    text-decoration: none;
+    font-size: 4px;
+    padding: 0px;
+    color: black;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+
+
+  #attributesMenu {
+    height: auto;
+    width: auto;
+  }
+
+  #attributesMenu button{
+    margin: 6px 6px 6px 4px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block;
+    width: 95%;
+    height: 80px;
+    cursor: pointer;
+  }
+
+  .activeBttn {
+    background-color: gray;
+  }
+
+  .bttn {
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .popupWindowColor{
+    position: fixed;
+    top:0px;
+    left: 255px;
+    z-index:1;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+  }
+
+.popupButtonColor::after {
+  content: "";
+  z-index: 8;
+  position: absolute;
+  top: 10%;
+  left: -17%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color:  transparent #000000 transparent transparent;
+}
+
+#colorPalet {
+  z-index: 8;
+  margin: 0px;
+}
+
+.deactivationZoneColor {
+    position: fixed;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+
+img{
+  width: 20px;
+}
+
+

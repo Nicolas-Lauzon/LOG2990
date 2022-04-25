@@ -1,0 +1,118 @@
+<div id="content">
+<div #mainFrame id="mainFrame" oncontextmenu="return false;">
+  <svg id="svg" version="1.1" baseProfile="full"
+    [attr.width]="dimensions[0]" [attr.height]="dimensions[1]"
+    xmlns="http://www.w3.org/2000/svg" (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMovement($event)" (mouseup)="onMouseUp($event)"
+    (mouseleave)="onMouseOut($event)">
+
+
+    <defs>
+      <filter id="filter0" filterUnits="userSpaceOnUse">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blurry" />
+      </filter>
+
+      <filter id="filter1" filterUnits="userSpaceOnUse">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blurry" />
+      </filter>
+
+      <filter id="filter2" filterUnits="userSpaceOnUse">
+        <feGaussianBlur in="sourceGraphic" stdDeviation="5" result="blurry" />
+        <feMorphology in="burry" operator="erode" radius="1" result="eroded" />
+        <feMerge>
+          <feMergeNode in="eroded" />
+          <feMergeNode in="sourceGraphic" />
+        </feMerge>
+      </filter>
+
+      <filter id="filter3" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="0.6" numOctaves="2"
+          result="turbulence" />
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="5"
+          xChannelSelector="R" yChannelSelector="G" result="turbulence2" />
+        <feGaussianBlur in="sourceGraphic" stdDeviation="5" result="blurry" />
+        <feMerge>
+          <feMergeNode in="blurry" />
+          <feMergeNode in="turbulence2" />
+        </feMerge>
+      </filter>
+
+      <filter id="filter4" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2"
+          result="turbulence" />
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="5"
+          xChannelSelector="R" yChannelSelector="G" result="turbulence2" />
+        <feGaussianBlur in="turbulence2" stdDeviation="2" result="blurry" />
+      </filter>
+
+      <filter id="filter5" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="0.70" numOctaves="2"
+          result="turbulence" />
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="10"
+          xChannelSelector="R" yChannelSelector="G" result="turbulence2" />
+        <feGaussianBlur in="turbulence2" stdDeviation="1" result="blurry" />
+
+        <feMerge>
+          <feMergeNode in="blurry" />
+          <feMergeNode in="sourceGraphic" />
+        </feMerge>
+      </filter>
+
+      <filter id="filter6" filterUnits="userSpaceOnUse">
+          <feBlend mode="color-burn" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="SourceGraphic"
+            result="blend" />
+      </filter>
+
+      <filter id="filter7" filterUnits="userSpaceOnUse">
+        <feColorMatrix type="saturate" values="6" in="SourceGraphic" result="colorMatrix" />
+      </filter>
+
+      <filter id="filter8" filterUnits="userSpaceOnUse">
+        <feColorMatrix type="matrix" values="-1 0 0 0 1
+                                             0 -1 0 0 1
+                                             0 0 -1 0 1
+                                             0 0 0 1 0" 
+          x="0%" y="0%" width="100%" height="100%" in="morphology1" result="colormatrix6" />
+      </filter>
+
+      <filter id="filter9" filterUnits="userSpaceOnUse">
+        <feGaussianBlur stdDeviation="0 10" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none"
+          result="blur" />
+      </filter>
+
+      <filter id="filter10" filterUnits="userSpaceOnUse">
+        <feComponentTransfer x="0%" y="0%" width="100%" height="100%" in="convolveMatrix" result="componentTransfer1">
+          <feFuncR type="identity" />
+          <feFuncG type="discrete" tableValues="0 1 0" />
+          <feFuncB type="discrete" tableValues="1 0 1" />
+          <feFuncA type="gamma" amplitude="1" exponent="1" offset="0" />
+        </feComponentTransfer>
+      </filter>
+
+
+      <filter id="spray" filterUnits="userSpaceOnUse">
+        <feTurbulence type="turbulence" baseFrequency="1"
+          numOctaves="2" result="turbulence"/>
+        <feDisplacementMap in2="turbulence" in="SourceGraphic"
+          scale="50" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+
+    </defs>
+    <g id="drawboard">
+      <rect id="background"/>
+      <g id="drawZone"></g>
+    </g>
+    <g id="selectedZone"></g>
+    <g id="grid" [attr.width]="dimensions[0]" [attr.height]="dimensions[1]" fill="none" *ngIf="this.services.gridService.isActive">
+    </g>
+    <g id="cursorSquare">
+    </g>
+
+  </svg>
+</div>
+
+<div id="backgroundPane"></div>
+<a id='download'></a>
+<canvas id="hiddenCanvas" display="none"></canvas>
+
+</div>

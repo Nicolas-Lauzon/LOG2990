@@ -1,0 +1,151 @@
+mat-form-field {
+  display: block;
+  overflow: auto;
+}
+
+
+app-color-palet{
+  position: fixed;
+  display: inline-block;
+  right:10%;
+  top:15%;
+  z-index: 5;
+}
+
+
+#desactivatePaletZone {
+  position: fixed;
+  left:0%;
+  top:0%;
+  width: 100%;
+  height: 100%;
+  z-index:4;
+}
+
+form {
+  overflow: auto;
+  size: inherit;
+}
+
+
+#exitButton {
+  float: right;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+#center {
+  border: 3px solid black;
+  background-color: white;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  height: fit-content;
+
+}
+.layout{
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+}
+
+#layoutColor {
+  margin: auto;
+  width: 78%;
+  padding: 10px;
+}
+
+#layoutColorButton {
+  margin: auto;
+  width: 20%;
+  padding: 10px;
+}
+
+.font{
+  color: black;
+  font-family: 'Trocchi', serif;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 0;
+}
+
+.buttonCreate {
+  background-color: #3b5998;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5b75ad;
+}
+
+#colorPaletDiv {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top:0%;
+  left: 0%;
+  z-index: 4;
+}
+
+#popUpConfirmation {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffffaa;
+  z-index: 4;
+}
+
+#alertWindow {
+  position: fixed;
+  top: 35%;
+  height: fit-content;
+  width: 30%;
+  left: 35%;
+  background-color: white;
+
+  border: black;
+  border: solid;
+
+
+}
+
+#message {
+  position: relative;
+  text-align: center;
+  font-size: large;
+  font-weight: bold ;
+}
+
+
+.alertWindowButton {
+  height: 30px;
+  width: 60px;
+  margin: 15px auto;
+  display: block;
+
+}
+
+#backgroundPane {
+  z-index: 0;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color:#ffffff66;
+}
+
+#content {
+  z-index: 3;
+  position: relative;
+  left: 0%;
+}
+

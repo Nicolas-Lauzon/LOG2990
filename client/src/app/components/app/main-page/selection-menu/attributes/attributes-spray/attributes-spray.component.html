@@ -1,0 +1,24 @@
+<div id="attributes">
+  <h5 class="attributeHeader">Épaisseur du spray (en pixel)</h5>
+
+  <input class='inputBox' type="number"
+    value={{currentWidth}} min="1" max="50" step="1" (keypress)='onKeypress($event)'
+    oninput="validity.valid||((value < min) ? value = 1 :value= 50);"
+    (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+    (input)= "onWidthInputChange($event.target.value)">
+
+  <mat-slider class="slider" min="1" max="64" step="1"
+    value={{currentWidth}} thumbLabel tickInterval="1"
+    (change)="onWidthSliderChange($event.value)"></mat-slider>
+
+  <h5 class="attributeHeader">Émissions par seconde</h5>
+    <input class="inputBox" value={{spraysPerSeconds}} type="number" min="1" max="250" step="1"
+    oninput="validity.valid||((value < min) ? value = 1 :value= 250);" (keypress)='onKeypress($event)'
+    (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+    (input)= "onSprayInpuchange($event.target.value)">
+
+    <mat-slider class="slider" min="1" max="250" step="1" value={{spraysPerSeconds}}
+      thumbLabel tickInterval="1"
+      (change)="onSpraysPerSecondSliderChange($event.value)"></mat-slider>
+
+</div>

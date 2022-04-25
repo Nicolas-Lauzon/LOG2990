@@ -1,0 +1,29 @@
+<div class="topnav">
+  <a class="titre" [routerLink]="['/']">
+    {{title}}
+  </a>
+
+  <div class="mat"> <a (click)="onClick(menu[3].path)">{{ menu[3].nom }}
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+        {{menu[3].icon}}</mat-icon> </a></div>
+  <div *ngIf="this.draw !== ''" class="mat"> <a
+      (click)="onClick(menu[2].path)">{{ menu[2].nom }} <mat-icon
+        aria-hidden="false" aria-label="Example home icon">{{menu[2].icon}}
+      </mat-icon> </a></div>
+  <div class="mat"> <a (click)="onClick(menu[1].path)">{{ menu[1].nom }}
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+        {{menu[1].icon}}</mat-icon> </a></div>
+  <div class="mat"> <a (click)="onClick(menu[0].path)">{{ menu[0].nom }}
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+        {{menu[0].icon}}</mat-icon> </a></div>
+</div>
+
+<div *ngIf="this.newForm" id="createDraw">
+  <app-create-drawing (closeButton)="this.newForm = false"></app-create-drawing>
+</div>
+
+<div  *ngIf="this.exitGallery" id="openGallery">
+  <app-gallery (exitGallery)="this.exitGallery = false"></app-gallery>
+</div>
+
+<img class="bg" src="../../../../assets/sketch-realiste.PNG">

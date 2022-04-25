@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div id="content">
+
+<div id="exitButton" (click)="exitGallery.emit()">
+  <img src="../../../../assets/exit_button.png" alt="exit_button" width="40px"height="40px" />
+</div>
+
+
+<div class="center">
+  <mat-form-field>
+    <input id="layoutColor" [(ngModel)]="tagHandler[0]" matInput value={{tagHandler[0]}} placeholder="Recherche par tags" (keyup.enter)= "addTag()" >
+  </mat-form-field>
+  <button class="add" (click)="addTag()"> + </button> <br />
+  <ul class="tag" *ngFor="let tag of tagHandler[1]">
+    <button class="buttonTag" (click)="removeTag(tag)"> {{tag}}</button>
+  </ul>
+</div><br />
+
+<div *ngIf="interruptors.get('isLoading')">
+  <div class="sk-circle">
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+  </div>
+</div>
+
+<div *ngIf="!interruptors.get('isLoading')">
+  <div class="bigWrapper">
+    <div  *ngFor="let drawing of this.drawings[1]" >
+      <div class="center">Titre : {{drawing.title}} <br /><br /><br /></div>
+
+      <div class="center">
+        <app-thumbnail [drawing] = drawing.drawingHtml > </app-thumbnail>
+      </div>
+        <li class="tag" *ngFor="let tag of drawing.tags"> #{{tag}}  </li>
+      <br /><br /><br />
+      <div class="center">
+        <button class="trash" (click)="delete(drawing)"><i class="fa fa-trash"></i></button>
+        <button class="continue" (click)="load(drawing)"><i class="Title"></i> Continuer </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="center" *ngIf="interruptors.get('noResults')">
+    Il n'y a pas de résultats pour votre recherche. Essayez avec un autre tag.
+</div>
+
+<div id="popUpConfirmation" *ngIf="interruptors.get('showAlert')">
+  <div id="alertWindow">
+    <p >Un dessin est déja actif, voulez-vous tout de même reprendre le dessin de la galerie et effacer celui en cours? </p>
+      <button  class="alertWindowBttn" (click)='replace();exitGallery.emit();'>Oui</button>
+      <button  class="alertWindowBttn" (click)="interruptors.set('showAlert', false)">Non</button>
+  </div>
+</div>
+
+</div>
+
+<div id="backgroundPane"></div>
+
+

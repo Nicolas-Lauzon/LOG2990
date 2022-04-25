@@ -1,0 +1,17 @@
+pencil_icon: https://svgsilh.com/fr/search/crayon-1.html
+mouse_icon:https://svgsilh.com/fr/image/25900.html
+
+crop_icon:https://fr.m.wikipedia.org/wiki/Fichier:Image_Crop_Icon.svg
+
+shape_icon:https://svgsilh.com/image/1973481.html
+bucket_icon:https://svgsilh.com/image/157513.html
+
+home_icon:https://fr.wikipedia.org/wiki/Fichier:Home_Icon.svg
+userguide_icon: https://svgsilh.com/image/1924516.html
+
+brush_icon:https://commons.wikimedia.org/wiki/File:Font_Awesome_5_solid_paint-brush.svg
+line_icon:fait par Nicolas
+plus_iconhttps://svgsilh.com/image/304947.html
+hexagon_icon:https://svgsilh.com/image/1070800.html
+save_icon : https://material.io/resources/icons/?search=save&icon=save&style=baseline
+export_icon : https://material.io/resources/icons/?search=export&icon=import_export&style=baseline

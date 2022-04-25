@@ -1,0 +1,49 @@
+\<div id="content">
+<app-sidebar class="menu"
+    (createNewDrawing)="this.createNewDrawing($event)"
+    (saveDrawing)="this.getViewPortPosition(); this.modalesInstances[2] = true;"
+    (showGallery)="this.getViewPortPosition(); this.modalesInstances[4] = true;"
+    (exportDrawing)="this.exportDrawing($event)"
+    (selectedSidebar)="this.selectedSidebarIconFct($event)"
+    [iconState]="this.iconsStates"
+
+></app-sidebar>
+<app-selection-menu class="menu"
+    (selectedDrawTool)="this.selectedMenuIconFct($event, 1)"
+    (selectedShapeTool)="this.selectedMenuIconFct($event, 2)"
+    (selectedColorTool)="this.selectedMenuIconFct($event, 3)"
+    [iconState]="this.iconsStates"
+    [index]="this.index"
+    (focus)='this.modalesInstances[0]=true'
+    (outFocus)='this.modalesInstances[0]=false'></app-selection-menu>
+
+
+<app-drawing_space id="drawingSpaceApp"></app-drawing_space>
+
+<div class="if" *ngIf="this.modalesInstances[1]">
+    <div id="createDraw" >
+        <app-create-drawing [position]="this.position" (createdDraw)="this.createdNewDrawing()" (closeButton)="this.modalesInstances[1] = false"> </app-create-drawing>
+    </div>
+</div>
+
+<div class="if" *ngIf="this.modalesInstances[2]">
+    <div id="createSaving" >
+        <app-save-drawing [position]="this.position" (closeButton)="this.modalesInstances[2] = false"></app-save-drawing>
+    </div>
+</div>
+
+<a id="download" download="#" href="#"></a>
+
+<div class="if" *ngIf="this.modalesInstances[3]">
+    <div id="export">
+        <app-export [position]="this.position" (exportDraw)="this.modalesInstances[3] = false" ></app-export>
+    </div>
+</div>
+
+<div  *ngIf="this.modalesInstances[4]" id="openGallery">
+    <app-gallery [position]="this.position"  (exitGallery)="this.modalesInstances[4] = false"></app-gallery>
+</div>
+
+</div>
+
+

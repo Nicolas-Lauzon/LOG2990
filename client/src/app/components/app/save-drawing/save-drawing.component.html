@@ -1,0 +1,56 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<div id="content">
+
+<form [formGroup]="myForm">
+    <div id="center">
+      <div id="exitButton" (click)="closeButton.emit()">
+        <img src="../../../../assets/exit_button.png" alt="exit_button" width="40px" height="40px" />
+      </div>
+        <h4 class="font">Nom du fichier:</h4>
+        <mat-form-field >
+            <input class="layout" matInput placeholder="Entrer le nom du fichier" formControlName="fileName"
+            (keypress)='onKeypress($event)' />
+            <mat-error *ngIf="fileName">
+                Ne doit pas contenir d'espaces
+            </mat-error>
+        </mat-form-field>
+
+        <h4 class="font">Tags:</h4>
+        <h5>Un tag est composé de lettres et de chiffres avec un maximum de 10 caractères. Ensuite, pesez sur entrer ou appuyez sur le boutton + pour l'ajouter. </h5>
+
+
+        <div id="tagsDivision">
+        <mat-form-field>
+            <input class="layout" [(ngModel)]="drawingElement[2]" matInput value={{drawingElement[2]}} matInput placeholder="Entrer le nom des tags." formControlName="tags"
+            (keypress)='onKeypress($event)' />
+
+            <button class="add" (click)="addTag()"> + </button> <br />
+
+            <mat-error *ngIf="tags">
+                {{getError()}}
+            </mat-error>
+        </mat-form-field>
+        <ul class="tag" *ngFor="let tag of drawingElement[3]">
+          <button class="buttonTag" (click)="removeTag(tag)"> {{tag}}</button>
+        </ul>
+        </div>
+
+        <div *ngIf="!this.showComponent" style="color: red;"> Le dessin n'a pas été sauvegardé!</div>
+        <br />
+        <div>
+            <button class="buttonCreate" (click)="this.saveData()" color="primary">Sauvegarder</button>
+            <button class="buttonCreate" (click)="this.closeButton.emit()" color="primary">Annuler</button>
+        </div>
+    </div>
+</form>
+</div>
+
+<div id="backgroundPane"></div>

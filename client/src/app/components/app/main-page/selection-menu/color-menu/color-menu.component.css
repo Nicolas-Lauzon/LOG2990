@@ -1,0 +1,198 @@
+
+app-color-palet {
+  z-index: 3;
+  position: fixed;
+  left: 260px;
+}
+
+app-quick-color{
+  margin: 3px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+#desactivatePalet
+{
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.drawColorMenu{
+  border: solid;
+  border-color: #333;
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  grid-template-columns: 50% 50%;
+  grid-gap: 5px;
+}
+
+
+.drawColorMenu p
+{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  margin: auto;
+}
+
+.drawColorMenu #testCouleur
+{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  margin: auto;
+}
+
+.drawColorMenu #primaryColorHeader
+{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin: auto;
+}
+
+
+.drawColorMenu #secondaryColorHeader
+{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin: auto;
+}
+
+.drawColorMenu #switchColor
+{
+  margin: auto;
+  border-style: solid;
+  box-sizing: border-box;
+  background-color: rgb(182, 182, 182);
+  border-color: black;
+  width: 30px;
+  height: 30px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.drawColorMenu #primaryColorView
+{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.drawColorMenu #backgroundColorView
+{
+  margin: auto;
+  border-style: solid;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.drawColorMenu input
+{
+  margin: auto;
+  border-style: solid;
+  box-sizing: border-box;
+  width: 60px;
+  height: 30px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+#opaciteHeader {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 5;
+  margin: auto;
+}
+
+
+.drawColorMenu #secondaryTransparencyHeader
+{
+  font-size: large;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 8;
+  grid-row-end: 9;
+  margin: auto;
+}
+
+.drawColorMenu #primaryTransparencyHeader
+{
+  font-size: large;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 6;
+  grid-row-end: 7;
+  margin: auto;
+}
+
+.drawColorMenu #primaryTransparencySlider
+{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+
+.drawColorMenu #secondaryTransparencySlider
+{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 9;
+  grid-row-end: 10;
+}
+
+#primaryTransparencyInput
+{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+#secondaryTransparencyInput
+{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 8;
+  grid-row-end: 9;
+}
+
+.drawColorMenu #secondaryColorView
+{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.ColorView{
+  margin: auto;
+  border-style: solid;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+}

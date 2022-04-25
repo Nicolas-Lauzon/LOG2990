@@ -1,0 +1,65 @@
+<div *ngIf="this.colorInformations[0]">
+  <div class="popupWindowColor primaryW" id="popupWindowPrimaryColorId">
+
+    <app-color-palet [currentColor]='this.colorInformations[1]'
+      (setColor)="onSetColor($event);closeColorPalet();"
+      (cancel)="closeColorPalet();" (focus)="this.focus.emit()" (focusout)="this.outFocus.emit()"></app-color-palet>
+    <div id="desactivatePalet" #desactivatePalet
+      (mousedown)="this.colorInformations[0] = 0">
+    </div>
+  </div>
+</div>
+
+
+
+<div #colorMenu id="colorMenu">
+  <div class="drawColorMenu">
+    <app-quick-color (setQuickColor)='onSetQuickColor($event)'
+      [recentColors]='this.colorSelection.recentColors'>
+    </app-quick-color>
+    <h4 id="testCouleur">Choix de couleur</h4>
+    <p id="primaryColorHeader">Primaire</p>
+    <div id='primaryColorView' #primaryColorView class="ColorView" [style.background-color] = this.colorSelection.primaryColor
+      (click)='this.openColorPalet(1);'></div>
+    <img id='switchColor' #switchColor class="ColorView"
+      (click)='this.onSwitchColor();' src='./../../../../assets/swap.svg'>
+    <p id="secondaryColorHeader">Secondaire</p>
+    <div id='secondaryColorView' #secondaryColorView class="ColorView" [style.background-color] = this.colorSelection.secondaryColor
+      (click)='this.openColorPalet(2);'></div>
+    <h4 id="opaciteHeader">Opacité</h4>
+    <p id="primaryTransparencyHeader">Primaire (%)</p>
+    <input id="primaryTransparencyInput" [value]='this.colorInformations[2]'
+      type="number" min="1" max="100" step="1"
+      (keypress)='onKeypress($event)'
+      (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+      (input)="onSetPrimaryTransparency($event.target.value)"
+      oninput="validity.valid||((value < min) ? value = 1 :value= 100);">
+
+    <mat-slider id="primaryTransparencySlider" class="slider" min="1" max="100"
+      step="1" [value]='this.colorInformations[2]'
+      (change)="onSetPrimaryTransparency($event.value)" thumbLabel
+      tickInterval="1">
+    </mat-slider>
+
+    <p id="secondaryTransparencyHeader">Secondaire (%)</p>
+    <input id="secondaryTransparencyInput"
+      [value]='this.colorInformations[3]' type="number" min="1" max="100"
+      step="1" (input)="onSetSecondaryTransparency($event.target.value)"
+      (focus)="this.focus.emit()" (focusout)="focusOutValidation()"
+      (keypress)='onKeypress($event)'
+      oninput="validity.valid||((value < min) ? value = 1 :value= 100);">
+
+    <mat-slider id="secondaryTransparencySlider" class="slider" min="1" max="100"
+      step="1" [value]='this.colorInformations[3]'
+      (change)="onSetSecondaryTransparency($event.value)" thumbLabel
+      tickInterval="1">
+    </mat-slider>
+
+
+  </div>
+  <div class="drawColorMenu">
+    <p id="backgroundColorHeader"> Arrière plan </p>
+    <div id='backgroundColorView' #backgroundColorView class="ColorView"
+      (click)='this.openColorPalet(3);' [style.background-color] = this.colorSelection.backgroundColor></div>
+  </div>
+</div>
